@@ -1,4 +1,4 @@
-Attribute VB_Name = "—]•ªƒXƒy[ƒXíœ"
+Attribute VB_Name = "ä½™åˆ†ã‚¹ãƒšãƒ¼ã‚¹å‰Šé™¤"
 Sub AdvancedSpaceCleaner()
 
     Dim ws As Worksheet
@@ -14,36 +14,36 @@ Sub AdvancedSpaceCleaner()
     
     startTime = Timer
     
-    ' ƒGƒ‰[ƒnƒ“ƒhƒŠƒ“ƒO
+    ' ã‚¨ãƒ©ãƒ¼ãƒãƒ³ãƒ‰ãƒªãƒ³ã‚°
     On Error GoTo ErrorHandler
     
-    ' ƒAƒNƒeƒBƒu‚Èƒ[ƒNƒV[ƒgŽæ“¾
+    ' ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãªãƒ¯ãƒ¼ã‚¯ã‚·ãƒ¼ãƒˆå–å¾—
     Set ws = Application.ActiveSheet
     If ws Is Nothing Then
-        MsgBox "ƒAƒNƒeƒBƒu‚Èƒ[ƒNƒV[ƒg‚ª‚ ‚è‚Ü‚¹‚ñB", vbExclamation, "ƒXƒy[ƒXíœƒ}ƒNƒ"
+        MsgBox "ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãªãƒ¯ãƒ¼ã‚¯ã‚·ãƒ¼ãƒˆãŒã‚ã‚Šã¾ã›ã‚“ã€‚", vbExclamation, "ã‚¹ãƒšãƒ¼ã‚¹å‰Šé™¤ãƒžã‚¯ãƒ­"
         Exit Sub
     End If
     
-    ' ƒV[ƒg‚ª•ÛŒì‚³‚ê‚Ä‚¢‚é‚©ƒ`ƒFƒbƒN
+    ' ã‚·ãƒ¼ãƒˆãŒä¿è­·ã•ã‚Œã¦ã„ã‚‹ã‹ãƒã‚§ãƒƒã‚¯
     If ws.ProtectContents Then
-        MsgBox "ƒV[ƒgu" & ws.Name & "v‚ª•ÛŒì‚³‚ê‚Ä‚¢‚Ü‚·B•ÛŒì‚ð‰ðœ‚µ‚Ä‚©‚çŽÀs‚µ‚Ä‚­‚¾‚³‚¢B", vbExclamation, "ƒXƒy[ƒXíœƒ}ƒNƒ"
+        MsgBox "ã‚·ãƒ¼ãƒˆã€Œ" & ws.Name & "ã€ãŒä¿è­·ã•ã‚Œã¦ã„ã¾ã™ã€‚ä¿è­·ã‚’è§£é™¤ã—ã¦ã‹ã‚‰å®Ÿè¡Œã—ã¦ãã ã•ã„ã€‚", vbExclamation, "ã‚¹ãƒšãƒ¼ã‚¹å‰Šé™¤ãƒžã‚¯ãƒ­"
         Exit Sub
     End If
     
-    ' ‘I‘ð”ÍˆÍ‚ÌŠm”F‚ÆÝ’è
+    ' é¸æŠžç¯„å›²ã®ç¢ºèªã¨è¨­å®š
     Set rng = Application.selection
     If rng Is Nothing Then
-        MsgBox "”ÍˆÍ‚ª‘I‘ð‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB", vbExclamation, "ƒXƒy[ƒXíœƒ}ƒNƒ"
+        MsgBox "ç¯„å›²ãŒé¸æŠžã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚", vbExclamation, "ã‚¹ãƒšãƒ¼ã‚¹å‰Šé™¤ãƒžã‚¯ãƒ­"
         Exit Sub
     End If
     
-    ' ’Pˆê‚Ì‹óƒZƒ‹‚ª‘I‘ð‚³‚ê‚Ä‚¢‚éê‡
+    ' å˜ä¸€ã®ç©ºã‚»ãƒ«ãŒé¸æŠžã•ã‚Œã¦ã„ã‚‹å ´åˆ
     If rng.count = 1 Then
         If IsEmptyOrError(rng.Cells(1, 1)) Then
-            ' ‰½‚à‘I‘ð‚³‚ê‚Ä‚¢‚È‚¢ê‡‚Í‘SƒV[ƒg‚ð‘ÎÛ‚É‚·‚é‚©Šm”F
-            If MsgBox("‘I‘ð‚³‚ê‚Ä‚¢‚éƒZƒ‹‚ª‹ó‚Å‚·B" & vbCrLf & _
-                     "Žg—p‚³‚ê‚Ä‚¢‚é‘S”ÍˆÍ‚ð‘ÎÛ‚É‚µ‚Ü‚·‚©H", _
-                     vbYesNo + vbQuestion, "”ÍˆÍ‘I‘ð") = vbYes Then
+            ' ä½•ã‚‚é¸æŠžã•ã‚Œã¦ã„ãªã„å ´åˆã¯å…¨ã‚·ãƒ¼ãƒˆã‚’å¯¾è±¡ã«ã™ã‚‹ã‹ç¢ºèª
+            If MsgBox("é¸æŠžã•ã‚Œã¦ã„ã‚‹ã‚»ãƒ«ãŒç©ºã§ã™ã€‚" & vbCrLf & _
+                     "ä½¿ç”¨ã•ã‚Œã¦ã„ã‚‹å…¨ç¯„å›²ã‚’å¯¾è±¡ã«ã—ã¾ã™ã‹ï¼Ÿ", _
+                     vbYesNo + vbQuestion, "ç¯„å›²é¸æŠž") = vbYes Then
                 Set rng = ws.UsedRange
                 processFullSheet = True
             Else
@@ -52,56 +52,52 @@ Sub AdvancedSpaceCleaner()
         End If
     End If
     
-    ' ”Ž®ƒZƒ‹‚àˆ—‚·‚é‚©Šm”F
-    IncludeFormulas = (MsgBox("”Ž®‚ª“ü—Í‚³‚ê‚Ä‚¢‚éƒZƒ‹‚àˆ—‚µ‚Ü‚·‚©H" & vbCrLf & _
-                             "u‚¢‚¢‚¦v‚ð‘I‘ð‚·‚é‚Æ’l‚Ì‚Ý‚ÌƒZƒ‹‚ðˆ—‚µ‚Ü‚·B", _
-                             vbYesNo + vbQuestion, "ˆ—ƒIƒvƒVƒ‡ƒ“") = vbYes)
+    ' æ•°å¼ã‚»ãƒ«ã‚‚å‡¦ç†ã™ã‚‹ã‹ç¢ºèª
+    IncludeFormulas = (MsgBox("æ•°å¼ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã‚‹ã‚»ãƒ«ã‚‚å‡¦ç†ã—ã¾ã™ã‹ï¼Ÿ" & vbCrLf & _
+                             "ã€Œã„ã„ãˆã€ã‚’é¸æŠžã™ã‚‹ã¨å€¤ã®ã¿ã®ã‚»ãƒ«ã‚’å‡¦ç†ã—ã¾ã™ã€‚", _
+                             vbYesNo + vbQuestion, "å‡¦ç†ã‚ªãƒ—ã‚·ãƒ§ãƒ³") = vbYes)
     
-    ' ˆ—‘ÎÛƒZƒ‹”‚ð•\Ž¦
+    ' å‡¦ç†å¯¾è±¡ã‚»ãƒ«æ•°ã‚’è¡¨ç¤º
     Dim targetCells As Long
     targetCells = CountTargetCells(rng, IncludeFormulas)
     
     If targetCells = 0 Then
-        MsgBox "ˆ—‘ÎÛ‚ÌƒZƒ‹‚ª‚ ‚è‚Ü‚¹‚ñB", vbInformation, "ƒXƒy[ƒXíœƒ}ƒNƒ"
+        MsgBox "å‡¦ç†å¯¾è±¡ã®ã‚»ãƒ«ãŒã‚ã‚Šã¾ã›ã‚“ã€‚", vbInformation, "ã‚¹ãƒšãƒ¼ã‚¹å‰Šé™¤ãƒžã‚¯ãƒ­"
         Exit Sub
     End If
     
-    ' ÅIŠm”F
+    ' æœ€çµ‚ç¢ºèª
     Dim confirmMsg As String
-    confirmMsg = "ƒ[ƒNƒV[ƒg: " & ws.Parent.Name & " - " & ws.Name & vbCrLf & _
-                "ˆ—‘ÎÛ: " & targetCells & " ƒZƒ‹" & vbCrLf & _
-                "”Ž®ƒZƒ‹: " & IIf(IncludeFormulas, "ŠÜ‚Þ", "œŠO") & vbCrLf & vbCrLf & _
-                "ˆÈ‰º‚Ìˆ—‚ðŽÀs‚µ‚Ü‚·F" & vbCrLf & _
-                "E ‘OŒã‚Ì‹ó”’íœ" & vbCrLf & _
-                "E ˜A‘±‚·‚é‹ó”’‚ð’Pˆê‹ó”’‚É•ÏŠ·" & vbCrLf & _
-                "E ‘SŠpE”¼Šp‹ó”’‚Ì“ˆêˆ—" & vbCrLf & vbCrLf & _
-                "ŽÀs‚µ‚Ü‚·‚©H"
+    confirmMsg = "ãƒ¯ãƒ¼ã‚¯ã‚·ãƒ¼ãƒˆ: " & ws.Parent.Name & " - " & ws.Name & vbCrLf & _
+                "å‡¦ç†å¯¾è±¡: " & targetCells & " ã‚»ãƒ«" & vbCrLf & _
+                "æ•°å¼ã‚»ãƒ«: " & IIf(IncludeFormulas, "å«ã‚€", "é™¤å¤–") & vbCrLf & vbCrLf & _
+                "å®Ÿè¡Œã—ã¾ã™ã‹ï¼Ÿ"
     
-    If MsgBox(confirmMsg, vbYesNo + vbQuestion, "ƒXƒy[ƒXíœƒ}ƒNƒ") = vbNo Then
+    If MsgBox(confirmMsg, vbYesNo + vbQuestion, "ã‚¹ãƒšãƒ¼ã‚¹å‰Šé™¤ãƒžã‚¯ãƒ­") = vbNo Then
         Exit Sub
     End If
     
-    ' ‰æ–ÊXV‚ð’âŽ~‚µ‚Äˆ—‘¬“xŒüã
+    ' ç”»é¢æ›´æ–°ã‚’åœæ­¢ã—ã¦å‡¦ç†é€Ÿåº¦å‘ä¸Š
     Application.ScreenUpdating = False
     Application.Calculation = xlCalculationManual
     Application.EnableEvents = False
     
-    ' isó‹µ•\Ž¦—p
+    ' é€²è¡ŒçŠ¶æ³è¡¨ç¤ºç”¨
     Dim progressStep As Long
     progressStep = Application.Max(1, targetCells \ 100)
     
-    ' ƒƒCƒ“ˆ—
+    ' ãƒ¡ã‚¤ãƒ³å‡¦ç†
     For Each cell In rng
-        ' ˆ—‘ÎÛƒZƒ‹‚©ƒ`ƒFƒbƒN
+        ' å‡¦ç†å¯¾è±¡ã‚»ãƒ«ã‹ãƒã‚§ãƒƒã‚¯
         If ShouldProcessCell(cell, IncludeFormulas) Then
-            ' ƒZƒ‹‚Ì’l‚ðˆÀ‘S‚ÉŽæ“¾
+            ' ã‚»ãƒ«ã®å€¤ã‚’å®‰å…¨ã«å–å¾—
             originalValue = GetCellValueSafely(cell)
             
-            ' •¶Žš—ñ‚Æ‚µ‚Äˆ—‰Â”\‚©ƒ`ƒFƒbƒN
+            ' æ–‡å­—åˆ—ã¨ã—ã¦å‡¦ç†å¯èƒ½ã‹ãƒã‚§ãƒƒã‚¯
             If IsStringValue(originalValue) Then
                 cleanedValue = CleanSpaces(CStr(originalValue))
                 
-                ' ’l‚ª•ÏX‚³‚ê‚½ê‡‚Ì‚ÝXV
+                ' å€¤ãŒå¤‰æ›´ã•ã‚ŒãŸå ´åˆã®ã¿æ›´æ–°
                 If CStr(originalValue) <> cleanedValue Then
                     On Error Resume Next
                     cell.value = cleanedValue
@@ -114,48 +110,48 @@ Sub AdvancedSpaceCleaner()
             
             processedCount = processedCount + 1
             
-            ' isó‹µ•\Ž¦
+            ' é€²è¡ŒçŠ¶æ³è¡¨ç¤º
             If processedCount Mod progressStep = 0 And targetCells > 1000 Then
-                Application.StatusBar = "ˆ—’†... " & _
+                Application.StatusBar = "å‡¦ç†ä¸­... " & _
                     Format(processedCount / targetCells, "0%") & _
                     " (" & processedCount & "/" & targetCells & ")"
             End If
         End If
     Next cell
     
-    ' Ý’è‚ðŒ³‚É–ß‚·
+    ' è¨­å®šã‚’å…ƒã«æˆ»ã™
     Application.ScreenUpdating = True
     Application.Calculation = xlCalculationAutomatic
     Application.EnableEvents = True
     Application.StatusBar = False
     
-    ' ˆ—Œ‹‰Ê‚ð•ñ
+    ' å‡¦ç†çµæžœã‚’å ±å‘Š
     Dim resultMsg As String
     Dim processingTime As Double
     processingTime = Timer - startTime
     
-    resultMsg = "ƒXƒy[ƒXíœˆ—‚ªŠ®—¹‚µ‚Ü‚µ‚½B" & vbCrLf & vbCrLf & _
-               "ˆ—Œ‹‰Ê:" & vbCrLf & _
-               "E ƒ[ƒNƒV[ƒg: " & ws.Parent.Name & " - " & ws.Name & vbCrLf & _
-               "E ˆ—ƒZƒ‹”: " & Format(processedCount, "#,##0") & vbCrLf & _
-               "E •ÏXƒZƒ‹”: " & Format(changedCount, "#,##0") & vbCrLf & _
-               "E ˆ—ŽžŠÔ: " & Format(processingTime, "0.00") & "•b"
+    resultMsg = "ã‚¹ãƒšãƒ¼ã‚¹å‰Šé™¤å‡¦ç†ãŒå®Œäº†ã—ã¾ã—ãŸã€‚" & vbCrLf & vbCrLf & _
+               "å‡¦ç†çµæžœ:" & vbCrLf & _
+               "ãƒ» ãƒ¯ãƒ¼ã‚¯ã‚·ãƒ¼ãƒˆ: " & ws.Parent.Name & " - " & ws.Name & vbCrLf & _
+               "ãƒ» å‡¦ç†ã‚»ãƒ«æ•°: " & Format(processedCount, "#,##0") & vbCrLf & _
+               "ãƒ» å¤‰æ›´ã‚»ãƒ«æ•°: " & Format(changedCount, "#,##0") & vbCrLf & _
+               "ãƒ» å‡¦ç†æ™‚é–“: " & Format(processingTime, "0.00") & "ç§’"
     
-    MsgBox resultMsg, vbInformation, "ˆ—Š®—¹"
+    MsgBox resultMsg, vbInformation, "å‡¦ç†å®Œäº†"
     
     Exit Sub
     
 ErrorHandler:
-    ' ƒGƒ‰[Žž‚Ìˆ—
+    ' ã‚¨ãƒ©ãƒ¼æ™‚ã®å‡¦ç†
     Application.ScreenUpdating = True
     Application.Calculation = xlCalculationAutomatic
     Application.EnableEvents = True
     Application.StatusBar = False
     
-    MsgBox "ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½B" & vbCrLf & _
-           "ƒGƒ‰[”Ô†: " & Err.Number & vbCrLf & _
-           "ƒGƒ‰[“à—e: " & Err.description & vbCrLf & _
-           "ƒGƒ‰[s: " & Erl, vbCritical, "ƒGƒ‰["
+    MsgBox "ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚" & vbCrLf & _
+           "ã‚¨ãƒ©ãƒ¼ç•ªå·: " & Err.Number & vbCrLf & _
+           "ã‚¨ãƒ©ãƒ¼å†…å®¹: " & Err.description & vbCrLf & _
+           "ã‚¨ãƒ©ãƒ¼è¡Œ: " & Erl, vbCritical, "ã‚¨ãƒ©ãƒ¼"
 End Sub
 
 Private Function GetCellValueSafely(cell As Range) As Variant
@@ -171,24 +167,24 @@ End Function
 Private Function IsStringValue(value As Variant) As Boolean
     On Error Resume Next
     
-    ' ‹ó’l‚âƒGƒ‰[’l‚ðƒ`ƒFƒbƒN
+    ' ç©ºå€¤ã‚„ã‚¨ãƒ©ãƒ¼å€¤ã‚’ãƒã‚§ãƒƒã‚¯
     If IsEmpty(value) Or IsError(value) Or IsNull(value) Then
         IsStringValue = False
         Exit Function
     End If
     
-    ' •¶Žš—ñ‚Ü‚½‚ÍƒeƒLƒXƒg‚É•ÏŠ·‰Â”\‚È’l‚©ƒ`ƒFƒbƒN
+    ' æ–‡å­—åˆ—ã¾ãŸã¯ãƒ†ã‚­ã‚¹ãƒˆã«å¤‰æ›å¯èƒ½ãªå€¤ã‹ãƒã‚§ãƒƒã‚¯
     Select Case VarType(value)
         Case vbString
             IsStringValue = True
         Case vbInteger, vbLong, vbSingle, vbDouble, vbCurrency, vbDecimal
-            ' ”’l‚¾‚ª•¶Žš—ñ‚Æ‚µ‚Äˆµ‚¤ê‡
+            ' æ•°å€¤ã ãŒæ–‡å­—åˆ—ã¨ã—ã¦æ‰±ã†å ´åˆ
             IsStringValue = (Len(Trim(CStr(value))) > 0)
         Case vbDate
-            ' “ú•t‚à•¶Žš—ñ‚Æ‚µ‚Äˆ—‰Â”\
+            ' æ—¥ä»˜ã‚‚æ–‡å­—åˆ—ã¨ã—ã¦å‡¦ç†å¯èƒ½
             IsStringValue = True
         Case vbBoolean
-            ' ƒu[ƒ‹’l‚à•¶Žš—ñ‚Æ‚µ‚Äˆ—‰Â”\
+            ' ãƒ–ãƒ¼ãƒ«å€¤ã‚‚æ–‡å­—åˆ—ã¨ã—ã¦å‡¦ç†å¯èƒ½
             IsStringValue = True
         Case Else
             IsStringValue = False
@@ -222,37 +218,37 @@ Private Function CleanSpaces(inputText As String) As String
     Dim result As String
     result = inputText
     
-    ' “ü—Í’l‚ª‹ó‚Ìê‡‚Í‚»‚Ì‚Ü‚Ü•Ô‚·
+    ' å…¥åŠ›å€¤ãŒç©ºã®å ´åˆã¯ãã®ã¾ã¾è¿”ã™
     If Len(result) = 0 Then
         CleanSpaces = result
         Exit Function
     End If
     
-    ' 1. ‘OŒã‚Ì”¼ŠpƒXƒy[ƒXíœ
+    ' 1. å‰å¾Œã®åŠè§’ã‚¹ãƒšãƒ¼ã‚¹å‰Šé™¤
     result = Trim(result)
     
-    ' 2. ‘OŒã‚Ì‘SŠpƒXƒy[ƒXíœ
-    Do While Len(result) > 0 And Left(result, 1) = "@"
+    ' 2. å‰å¾Œã®å…¨è§’ã‚¹ãƒšãƒ¼ã‚¹å‰Šé™¤
+    Do While Len(result) > 0 And Left(result, 1) = "ã€€"
         result = Mid(result, 2)
     Loop
-    Do While Len(result) > 0 And Right(result, 1) = "@"
+    Do While Len(result) > 0 And Right(result, 1) = "ã€€"
         result = Left(result, Len(result) - 1)
     Loop
     
-    ' 3. ˜A‘±‚·‚é”¼ŠpƒXƒy[ƒX‚ð’PˆêƒXƒy[ƒX‚É
+    ' 3. é€£ç¶šã™ã‚‹åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ã‚’å˜ä¸€ã‚¹ãƒšãƒ¼ã‚¹ã«
     Do While InStr(result, "  ") > 0
         result = Replace(result, "  ", " ")
     Loop
     
-    ' 4. ˜A‘±‚·‚é‘SŠpƒXƒy[ƒX‚ð’Pˆê‘SŠpƒXƒy[ƒX‚É
-    Do While InStr(result, "@@") > 0
-        result = Replace(result, "@@", "@")
+    ' 4. é€£ç¶šã™ã‚‹å…¨è§’ã‚¹ãƒšãƒ¼ã‚¹ã‚’å˜ä¸€å…¨è§’ã‚¹ãƒšãƒ¼ã‚¹ã«
+    Do While InStr(result, "ã€€ã€€") > 0
+        result = Replace(result, "ã€€ã€€", "ã€€")
     Loop
     
-    ' 5. ƒ^ƒu•¶Žš‚Ìˆ—
+    ' 5. ã‚¿ãƒ–æ–‡å­—ã®å‡¦ç†
     result = Replace(result, vbTab, " ")
     
-    ' 6. ‰üs•¶Žš‚Ìˆ—i‰üs‚ðíœ‚·‚éê‡j
+    ' 6. æ”¹è¡Œæ–‡å­—ã®å‡¦ç†ï¼ˆæ”¹è¡Œã‚’å‰Šé™¤ã™ã‚‹å ´åˆï¼‰
     ' result = Replace(result, vbCrLf, " ")
     ' result = Replace(result, vbCr, " ")
     ' result = Replace(result, vbLf, " ")
@@ -265,19 +261,19 @@ End Function
 Private Function ShouldProcessCell(cell As Range, IncludeFormulas As Boolean) As Boolean
     On Error Resume Next
     
-    ' ‹ó”’ƒZƒ‹‚âƒGƒ‰[ƒZƒ‹‚ÍœŠO
+    ' ç©ºç™½ã‚»ãƒ«ã‚„ã‚¨ãƒ©ãƒ¼ã‚»ãƒ«ã¯é™¤å¤–
     If IsEmptyOrError(cell) Then
         ShouldProcessCell = False
         Exit Function
     End If
     
-    ' ”Ž®ƒZƒ‹‚Ìˆ—”»’è
+    ' æ•°å¼ã‚»ãƒ«ã®å‡¦ç†åˆ¤å®š
     If cell.HasFormula And Not IncludeFormulas Then
         ShouldProcessCell = False
         Exit Function
     End If
     
-    ' ƒZƒ‹‚Ì’l‚ðŽæ“¾‚µ‚Ä•¶Žš—ñ‚Æ‚µ‚Äˆ—‰Â”\‚©ƒ`ƒFƒbƒN
+    ' ã‚»ãƒ«ã®å€¤ã‚’å–å¾—ã—ã¦æ–‡å­—åˆ—ã¨ã—ã¦å‡¦ç†å¯èƒ½ã‹ãƒã‚§ãƒƒã‚¯
     Dim cellValue As Variant
     cellValue = GetCellValueSafely(cell)
     
@@ -303,9 +299,9 @@ Private Function CountTargetCells(rng As Range, IncludeFormulas As Boolean) As L
             count = count + 1
         End If
         
-        ' ‘å—Êƒf[ƒ^‚Ìê‡‚Í“r’†‚ÅƒJƒEƒ“ƒg‚ð§ŒÀ
+        ' å¤§é‡ãƒ‡ãƒ¼ã‚¿ã®å ´åˆã¯é€”ä¸­ã§ã‚«ã‚¦ãƒ³ãƒˆã‚’åˆ¶é™
         If count > 100000 Then
-            count = count + (rng.count - cell.row + rng.row - 1) ' ŠTŽZ
+            count = count + (rng.count - cell.row + rng.row - 1) ' æ¦‚ç®—
             Exit For
         End If
     Next cell
@@ -314,4 +310,5 @@ Private Function CountTargetCells(rng As Range, IncludeFormulas As Boolean) As L
     
     On Error GoTo 0
 End Function
+
 
